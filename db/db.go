@@ -262,8 +262,9 @@ func (db *pgDB) ListOffChainData(ctx context.Context, keys []common.Hash) ([]typ
 	if err != nil {
 		return nil, err
 	}
-
-	defer rows.Close()
+	if rows != nil {
+		defer rows.Close()
+	}
 
 	type row struct {
 		Key   string `db:"key"`
