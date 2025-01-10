@@ -5,7 +5,7 @@ import (
 	"errors"
 
 	cdkCommon "github.com/0xPolygon/cdk/common"
-	cdkLog "github.com/0xPolygon/cdk/log"
+	aggkitLog "github.com/agglayer/aggkit/log"
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/crypto"
 )
@@ -34,7 +34,7 @@ func (s *SequenceBanana) HashToSign() []byte {
 	accInputHash := s.OldAccInputHash
 	for _, b := range s.Batches {
 		accInputHash = cdkCommon.CalculateAccInputHash(
-			cdkLog.GetDefaultLogger(),
+			aggkitLog.GetDefaultLogger(),
 			accInputHash,
 			b.L2Data,
 			s.L1InfoRoot,
